@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk of rain returns save editor</title>
+</head>
+<body>
+    <h1>Risk of rain returns save editor</h1>
+    
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if success %}
+        <p style="color: green;">{{ success }}</p>
+    {% endif %}
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Save file:</label>
+        <input type="file" name="file" id="file" required>
+        <br>
+        
+        <label for="dossier_destination">Target directory:</label>
+        <input type="text" name="dossier_destination" id="dossier_destination" required>
+        <button type="button" onclick="choisirDossier()">Choose a directory</button>
+        <br>
+
+
+        <button type="submit">Execute</button>
+    </form>
+
+    <script>
+        function choisirDossier() {
+            var inputDossier = document.getElementById('dossier_destination');
+            var dossier = window.showDirectoryPicker();
+            dossier.then((dir) => {
+                var path = dir.name;
+                inputDossier.value = path;
+            });
+        }
+    </script>
+</body>
+</html>

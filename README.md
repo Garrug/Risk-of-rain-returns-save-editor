@@ -7,3 +7,4 @@ Just select your save.json file from : Program File (x86) > Steam > userdata >13
 And excute the program
 
 or you can just replace your save by the file save.json
+You'll get all achievements and unlock everything
